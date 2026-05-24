@@ -1,14 +1,13 @@
 # Obsidian Colorful Files 🎨
 
-A lightweight, high-performance Obsidian community plugin designed to bring rich, customized visual organization to your file explorer sidebar. Move beyond plain text and curate a vault layout tailored perfectly to your workflows.
+A lightweight, high-performance Obsidian community plugin designed to bring rich, customized visual organization to your file explorer sidebar. Move beyond plain text and curate a vault layout tailored for features, focus, and fluidity.
 
-## ✨ Key Features
+## 🚀 Key Features
 
-- **24 Curated Designer Colors:** Categorized into sleek palettes (Warm Pastels, Cool Blues/Greens, Sunny Brights, and Earthy Neutrals) to keep your workspace looking exceptionally clean.
-- **Bespoke Hex Code Customization:** Don't want to use the palette? An integrated text utility allows you to type in *any* custom hex code (e.g., `#FF5733`) or standard HTML color names (like `purple`, `gold`, or `darkgreen`).
-- **Dynamic Folder Cascading:** Toggle inheritance on or off. When active, all sub-folders and child notes automatically inherit their parent folder's color scheme.
-- **Dual Display Engines:** Choose between a bold **Row Background Highlight** or a subtle **Text Color Overwrite** directly via the plugin's dedicated configuration tab.
-- **Optimized Framework Architecture:** Compiled natively using TypeScript and bundled tracking nodes via `esbuild/tsup`, ensuring zero impact on your vault's startup time or index caching.
+* **Compact Swatch Grid UI:** A beautiful, space-saving 6x4 horizontal matrix of curated color swatches nested directly inside your context menu.
+* **Hover Tooltips:** Hover your cursor over any color circle to immediately see its descriptive name.
+* **Custom Hex & Keyword Input:** Don't want to use the palette? Input your own custom `#HEX` codes or standard CSS color names instantly.
+* **Folder Cascading:** Let sub-files and nested directories inherit parent colors automatically with alpha-blended contrast shifts.
 
 ## 🚀 How to Use
 
