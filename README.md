@@ -1,30 +1,40 @@
-# Obsidian Colorful Files 🎨
+# 🎨 Obsidian Colorful Files
 
-A lightweight, high-performance Obsidian community plugin designed to bring rich, customized visual organization to your file explorer sidebar. Move beyond plain text and curate a vault layout tailored for features, focus, and fluidity.
+Transform your workspace aesthetics. `colorfulfiles` allows you to break away from uniform file trees by injecting a premium, high-density visual color palette directly into Obsidian's native file navigator context menus. 
+
+Color-code your folders, organize project hierarchies, or highlight priority notes using an elegant, production-grade interface.
+
+---
 
 ## 🚀 Key Features
 
-* **Compact Swatch Grid UI:** A beautiful, space-saving 6x4 horizontal matrix of curated color swatches nested directly inside your context menu.
-* **Hover Tooltips:** Hover your cursor over any color circle to immediately see its descriptive name.
-* **Custom Hex & Keyword Input:** Don't want to use the palette? Input your own custom `#HEX` codes or standard CSS color names instantly.
-* **Folder Cascading:** Let sub-files and nested directories inherit parent colors automatically with alpha-blended contrast shifts.
+* **📦 High-Density 64-Color Palette Matrix:** An expansive, hand-curated library of 64 colors mapped into a symmetrical 8x8 dashboard grid—featuring soft pastels, rich ocean blues, vibrant greens, deep amethysts, eye-catching neons, and high-contrast earth/slate neutrals.
+* **✨ Kinetic Hover Feedback Engine:** Swatches feature a highly responsive micro-interaction loop that applies an elastic `scale(1.25)` expansion, elevated layer positioning (`z-index`), and a dual-layer radial glow animation under your cursor.
+* **🌊 Intelligent Color Cascading:** Color a parent folder and choose to let all nested sub-directories and individual files automatically inherit the parental tone with calculated, subtle transparency overlays.
+* **⚡ Zero-Footprint Dynamic Injection:** Intercepts and overrides the native DOM using lightweight, safe type-casting configurations that run seamlessly inside Electron, ensuring zero performance drops even on massive multi-thousand file vaults.
+* **🎨 Custom Hex Input Engine:** Need a specific brand color? Use the integrated text prompt dialog to pass manual hex codes or standard CSS keywords directly to the stylesheet repainter.
 
-## 🚀 How to Use
+---
 
-1. Right-click any file or folder in your Obsidian sidebar.
-2. Select **Set Custom Color** from the context menu.
-3. Choose a color from the 24-piece designer grid, or click **Custom Hex Code...** to supply your own.
-4. To remove a color style entirely, click **Clear Color** at the bottom of the selection list.
+## 🛠️ Interface Mechanics
 
-## 🛠️ Developer Installation & Local Compilation
+Instead of cluttering your context menu workspace with slow text-based list items, `colorfulfiles` subverts native constraints to bundle all 64 options into a compact, space-saving element:
 
-If you want to clone this project repository to modify the source code or expand the color palette yourself, make sure you have [Node.js](https://nodejs.org/) installed, and execute these commands:
+| Layout System | Grid Footprint | Interactive State | Persistence |
+| :--- | :--- | :--- | :--- |
+| **CSS Grid (8x8)** | Compact 18px Circles | 3D Floating Pop on Hover | Asynchronous Local Data Storage |
 
+---
+
+## 💻 Technical Installation (For Developers)
+
+To run a localized development build inside your vault:
+
+1. Clone the repository into your vault's plugin folder: `.obsidian/plugins/colorfulfiles/`
+2. Install dependencies and compile the TypeScript source code using your active toolchain:
 ```bash
-# Clone and jump into the directory
-cd .obsidian/plugins/
-git clone [https://github.com/YOUR-USERNAME/colorfulfiles.git](https://github.com/YOUR-USERNAME/colorfulfiles.git)
-cd colorfulfiles
+npm install
+npm run dev
+```
+3. Toggle the plugin active inside Obsidian's Community Plugins configuration dashboard screen.
 
-# Execute the modern background compilation watch-engine
-npx tsup src/main.ts --format cjs --minify --watch --external obsidian
