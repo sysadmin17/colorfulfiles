@@ -1,9 +1,9 @@
 {
-  "id": "colorfulfiles",
-  "name": "Colorful Files",
-  "version": "1.0.0",
-  "minAppVersion": "1.5.0",
-  "description": "A modern, highly optimized file and folder color styling layout manager.",
-  "author": "Abdul Moid",
+  "id": "colourfulfiles",
+  "name": "Custom File Colors",
+  "version": "1.1.0",
+  "minAppVersion": "1.0.0",
+  "description": "Transform your file explorer sidebar with a compact 24-color horizontal grid palette, featuring hover tooltips, custom hex codes, and cascading folder highlights.",
+  "author": "sysadmin17",
   "isDesktopOnly": false
 }
