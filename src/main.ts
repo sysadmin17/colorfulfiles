@@ -88,15 +88,58 @@ export default class CustomFileColors extends Plugin {
     showColorMenu(file: any) {
         const menu = new Menu();
 
-        // 1. Build out the full list of 24 curated palette selections
-        this.settings.palette.forEach(color => {
-            menu.addItem((item) => {
-                item.setTitle(color.name)
-                    .onClick(async () => {
-                        this.settings.fileColors[file.path] = color.value;
-                        await this.saveData(this.settings);
-                        this.updateStyles();
-                    });
+        // 1. Create a specialized single menu item that will host our Horizontal Grid Layout
+        menu.addItem((item) => {
+            const domEl = (item as any).dom as HTMLElement;
+            if (!domEl) return;
+
+            // Clear native text configurations and style it into a clean Grid container
+            domEl.innerHTML = '';
+            domEl.style.display = 'grid';
+            domEl.style.gridTemplateColumns = 'repeat(6, 1fr)'; // 6 swatches per row
+            domEl.style.gap = '8px';
+            domEl.style.padding = '12px';
+            domEl.style.cursor = 'default';
+            domEl.style.backgroundColor = 'transparent';
+
+            // Stop hover row actions inside our menu panel from drawing default backgrounds
+            domEl.addEventListener('mouseenter', (e) => e.stopPropagation());
+            domEl.addEventListener('mousemove', (e) => e.stopPropagation());
+
+            // Build out the circles dynamically
+            this.settings.palette.forEach(color => {
+                const swatch = document.createElement('div');
+                swatch.title = color.name; // Displays the beautiful name tooltip upon hover!
+                
+                // Style into a sleek circle button
+                swatch.style.width = '22px';
+                swatch.style.height = '22px';
+                swatch.style.borderRadius = '50%';
+                swatch.style.backgroundColor = color.value;
+                swatch.style.cursor = 'pointer';
+                swatch.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
+                swatch.style.border = '1px solid rgba(255,255,255,0.15)';
+
+                // Visual interactive state triggers
+                swatch.addEventListener('mouseenter', () => {
+                    swatch.style.transform = 'scale(1.15)';
+                    swatch.style.boxShadow = '0 0 8px rgba(255,255,255,0.4)';
+                });
+                swatch.addEventListener('mouseleave', () => {
+                    swatch.style.transform = 'scale(1)';
+                    swatch.style.boxShadow = 'none';
+                });
+
+                // Core Selection Click Action
+                swatch.addEventListener('click', async (e) => {
+                    e.stopPropagation(); // Stop menu bubble leaks
+                    this.settings.fileColors[file.path] = color.value;
+                    await this.saveData(this.settings);
+                    this.updateStyles();
+                    menu.hide(); // Safely dismiss context menu panels after click completes
+                });
+
+                domEl.appendChild(swatch);
             });
         });
 
