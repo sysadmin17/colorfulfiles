@@ -1,0 +1,14 @@
+{
+  "name": "colorfulfiles",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "tsup src/main.ts --format cjs --minify --watch --external obsidian",
+    "build": "tsup src/main.ts --format cjs --minify --external obsidian"
+  },
+  "devDependencies": {
+    "obsidian": "^1.5.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}

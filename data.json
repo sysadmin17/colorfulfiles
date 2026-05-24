@@ -1,0 +1,105 @@
+{
+  "fileColors": {
+    "Personal/Home/Test file.md": "#ffa94d"
+  },
+  "colorBackground": false,
+  "cascadeColors": true,
+  "palette": [
+    {
+      "name": "Salmon Red",
+      "value": "#ff6b6b"
+    },
+    {
+      "name": "Coral Pink",
+      "value": "#ff8787"
+    },
+    {
+      "name": "Blush Pink",
+      "value": "#fcc2d7"
+    },
+    {
+      "name": "Plum Purple",
+      "value": "#e599f7"
+    },
+    {
+      "name": "Deep Violet",
+      "value": "#cc5de8"
+    },
+    {
+      "name": "Lavender",
+      "value": "#b197fc"
+    },
+    {
+      "name": "Ocean Blue",
+      "value": "#339af0"
+    },
+    {
+      "name": "Sky Blue",
+      "value": "#74c0fc"
+    },
+    {
+      "name": "Cyan / Teal",
+      "value": "#66d9e8"
+    },
+    {
+      "name": "Mint Green",
+      "value": "#63e6be"
+    },
+    {
+      "name": "Emerald Green",
+      "value": "#51cf66"
+    },
+    {
+      "name": "Sage Green",
+      "value": "#a9e34b"
+    },
+    {
+      "name": "Sunflower Yellow",
+      "value": "#fcc419"
+    },
+    {
+      "name": "Pastel Yellow",
+      "value": "#ffe066"
+    },
+    {
+      "name": "Amber Orange",
+      "value": "#ff922b"
+    },
+    {
+      "name": "Peach Orange",
+      "value": "#ffa94d"
+    },
+    {
+      "name": "Terracotta",
+      "value": "#e8590c"
+    },
+    {
+      "name": "Crimson",
+      "value": "#c92a2a"
+    },
+    {
+      "name": "Sand Beige",
+      "value": "#f1f3f5"
+    },
+    {
+      "name": "Warm Gray",
+      "value": "#adb5bd"
+    },
+    {
+      "name": "Slate Gray",
+      "value": "#495057"
+    },
+    {
+      "name": "Taupe Brown",
+      "value": "#d0bfff"
+    },
+    {
+      "name": "Olive Green",
+      "value": "#94d82d"
+    },
+    {
+      "name": "Coffee Brown",
+      "value": "#868e96"
+    }
+  ]
+}

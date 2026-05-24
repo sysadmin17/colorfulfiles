@@ -1,0 +1,9 @@
+{
+  "id": "colorfulfiles",
+  "name": "Colorful Files",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "A modern, highly optimized file and folder color styling layout manager.",
+  "author": "Your Name",
+  "isDesktopOnly": false
+}
