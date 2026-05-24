@@ -2,7 +2,7 @@ import { Plugin, Menu, PluginSettingTab, Setting } from 'obsidian';
 
 interface ColorItem {
     name: string;
-    value: string;
+    value: string; // Harmonized back to standard value key
 }
 
 interface PluginSettings {
@@ -17,37 +17,45 @@ const DEFAULT_SETTINGS: PluginSettings = {
     colorBackground: false,
     cascadeColors: true,
     palette: [
-        // --- WARM / PASTELS ---
-        { name: 'Salmon Red', value: '#ff6b6b' },
-        { name: 'Coral Pink', value: '#ff8787' },
-        { name: 'Blush Pink', value: '#fcc2d7' },
-        { name: 'Plum Purple', value: '#e599f7' },
-        { name: 'Deep Violet', value: '#cc5de8' },
-        { name: 'Lavender', value: '#b197fc' },
-        
-        // --- COOL / BLUES & GREENS ---
-        { name: 'Ocean Blue', value: '#339af0' },
-        { name: 'Sky Blue', value: '#74c0fc' },
-        { name: 'Cyan / Teal', value: '#66d9e8' },
-        { name: 'Mint Green', value: '#63e6be' },
-        { name: 'Emerald Green', value: '#51cf66' },
-        { name: 'Sage Green', value: '#a9e34b' },
+        // --- ROW 1-2: Pinks, Reds & Deep Amethysts/Purples ---
+        { name: 'Soft Coral', value: '#FF8B94' }, { name: 'Blush Pink', value: '#FFAAA6' },
+        { name: 'Peach Cream', value: '#FFD3B6' }, { name: 'Muted Gold', value: '#D1A153' },
+        { name: 'Crimson Red', value: '#DC3545' }, { name: 'Deep Rose', value: '#C2185B' },
+        { name: 'Lavender Mist', value: '#E1BEE7' }, { name: 'Thistle Purple', value: '#D8BFD8' },
+        { name: 'Vibrant Orchid', value: '#BA68C8' }, { name: 'Deep Purple', value: '#9C27B0' },
+        { name: 'Royal Amethyst', value: '#7B1FA2' }, { name: 'Plum Wine', value: '#4A148C' },
+        { name: 'Midnight Indigo', value: '#3F51B5' }, { name: 'Electric Violet', value: '#651FFF' },
+        { name: 'Neon Pink', value: '#FF007F' }, { name: 'Magenta Glow', value: '#FF00FF' },
 
-        // --- BRIGHT / SUNNY ---
-        { name: 'Sunflower Yellow', value: '#fcc419' },
-        { name: 'Pastel Yellow', value: '#ffe066' },
-        { name: 'Amber Orange', value: '#ff922b' },
-        { name: 'Peach Orange', value: '#ffa94d' },
-        { name: 'Terracotta', value: '#e8590c' },
-        { name: 'Crimson', value: '#c92a2a' },
+        // --- ROW 3-4: Cool Ocean Blues & Deep Aquatic Cyans ---
+        { name: 'Sky Blue', value: '#87CEEB' }, { name: 'Soft Cyan', value: '#E0F7FA' },
+        { name: 'Turquoise', value: '#40E0D0' }, { name: 'Robin Egg', value: '#00CCD6' },
+        { name: 'Ocean Wave', value: '#007ACC' }, { name: 'Deep Cobalt', value: '#1A237E' },
+        { name: 'Hot Cyan', value: '#00E5FF' }, { name: 'Teal Shadow', value: '#00695C' },
+        { name: 'Glacier Blue', value: '#B0E0E6' }, { name: 'Ice Blue', value: '#AFEEEE' },
+        { name: 'Steel Blue', value: '#4682B4' }, { name: 'Cerulean', value: '#007BA7' },
+        { name: 'Midnight Blue', value: '#191970' }, { name: 'Navy Depth', value: '#000080' },
+        { name: 'Electric Blue', value: '#00FFFF' }, { name: 'Nordic Frost', value: '#D8DEE9' },
 
-        // --- EARTHY / NEUTRALS ---
-        { name: 'Sand Beige', value: '#f1f3f5' },
-        { name: 'Warm Gray', value: '#adb5bd' },
-        { name: 'Slate Gray', value: '#495057' },
-        { name: 'Taupe Brown', value: '#d0bfff' },
-        { name: 'Olive Green', value: '#94d82d' },
-        { name: 'Coffee Brown', value: '#868e96' }
+        // --- ROW 5-6: Fresh Matrix Greens & Radiant Sunbursts ---
+        { name: 'Mint Green', value: '#A8E6CF' }, { name: 'Pale Lime', value: '#DCEDC8' },
+        { name: 'Sage Leaf', value: '#81C784' }, { name: 'Emerald', value: '#2ECC71' },
+        { name: 'Forest Green', value: '#27AE60' }, { name: 'Neon Lime', value: '#00E676' },
+        { name: 'Olive Drab', value: '#6B8E23' }, { name: 'Dark Moss', value: '#1B5E20' },
+        { name: 'Lemon Chiffon', value: '#FFFACD' }, { name: 'Bright Yellow', value: '#FFEB3B' },
+        { name: 'Banana Soft', value: '#FFF9C4' }, { name: 'Warm Amber', value: '#FFC107' },
+        { name: 'Safety Orange', value: '#FF9800' }, { name: 'Burnt Ochre', value: '#E65100' },
+        { name: 'Sunset Glow', value: '#FF5722' }, { name: 'Volcanic Ash', value: '#BF360C' },
+
+        // --- ROW 7-8: High-Contrast Earth Tones, Slates & Grays ---
+        { name: 'Chalk White', value: '#FFFFFF' }, { name: 'Alabaster', value: '#FAFAFA' },
+        { name: 'Platinum', value: '#E5E5E5' }, { name: 'Silver Streak', value: '#BDC3C7' },
+        { name: 'Cool Gray', value: '#95A5A6' }, { name: 'Slate Gray', value: '#7F8C8D' },
+        { name: 'Asphalt Gray', value: '#34495E' }, { name: 'Charcoal Black', value: '#2C3E50' },
+        { name: 'Jet Black', value: '#000000' }, { name: 'Dark Velvet', value: '#111111' },
+        { name: 'Warm Taupe', value: '#8D6E63' }, { name: 'Chestnut Brown', value: '#5D4037' },
+        { name: 'Espresso', value: '#3E2723' }, { name: 'Sandstone', value: '#D2B48C' },
+        { name: 'Khaki Stone', value: '#F0E68C' }, { name: 'Sepia Vintage', value: '#704214' }
     ]
 };
 
@@ -93,54 +101,57 @@ export default class CustomFileColors extends Plugin {
             const domEl = (item as any).dom as HTMLElement;
             if (!domEl) return;
 
-            // Clear native text configurations and style it into a clean Grid container
-            domEl.innerHTML = '';
+            // Re-architect the context menu row into a clean, compact 8x8 grid dashboard
             domEl.style.display = 'grid';
-            domEl.style.gridTemplateColumns = 'repeat(6, 1fr)'; // 6 swatches per row
-            domEl.style.gap = '8px';
+            domEl.style.gridTemplateColumns = 'repeat(8, 1fr)'; // 8 items across, wrapping automatically into 8 rows!
+            domEl.style.gap = '5px';                            // Snug spacing for micro-swatches
             domEl.style.padding = '12px';
-            domEl.style.cursor = 'default';
-            domEl.style.backgroundColor = 'transparent';
+            domEl.style.justifyItems = 'center';                // Centers the mini circles cleanly in their grid cells
 
             // Stop hover row actions inside our menu panel from drawing default backgrounds
             domEl.addEventListener('mouseenter', (e) => e.stopPropagation());
             domEl.addEventListener('mousemove', (e) => e.stopPropagation());
 
             // Build out the circles dynamically
-            this.settings.palette.forEach(color => {
-                const swatch = document.createElement('div');
-                swatch.title = color.name; // Displays the beautiful name tooltip upon hover!
-                
-                // Style into a sleek circle button
-                swatch.style.width = '22px';
-                swatch.style.height = '22px';
-                swatch.style.borderRadius = '50%';
-                swatch.style.backgroundColor = color.value;
-                swatch.style.cursor = 'pointer';
-                swatch.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
-                swatch.style.border = '1px solid rgba(255,255,255,0.15)';
+		this.settings.palette.forEach(color => {
+		    const swatch = document.createElement('div');
+		    swatch.title = color.name; 
+		    
+		    // 1. Set our new crisp 18px base footprint
+		    swatch.style.width = '18px';
+		    swatch.style.height = '18px';
+		    swatch.style.borderRadius = '50%';
+		    swatch.style.backgroundColor = color.value;
+		    swatch.style.cursor = 'pointer';
+		    
+		    // Smooth timing for both the size change and the shadow pop
+		    swatch.style.transition = 'transform 0.12s ease-out, box-shadow 0.12s ease-out';
+		    swatch.style.border = '1px solid rgba(255,255,255,0.15)';
 
-                // Visual interactive state triggers
-                swatch.addEventListener('mouseenter', () => {
-                    swatch.style.transform = 'scale(1.15)';
-                    swatch.style.boxShadow = '0 0 8px rgba(255,255,255,0.4)';
-                });
-                swatch.addEventListener('mouseleave', () => {
-                    swatch.style.transform = 'scale(1)';
-                    swatch.style.boxShadow = 'none';
-                });
+		    // 2. Enhanced Hover State: Clean spatial pop out
+		    swatch.addEventListener('mouseenter', () => {
+			swatch.style.transform = 'scale(1.25)'; // Smoothly expands to ~22.5px
+			swatch.style.zIndex = '10';             // Ensures it hovers layered cleanly above its neighbors
+			swatch.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0, 0, 0, 0.3)';
+		    });
+		    
+		    swatch.addEventListener('mouseleave', () => {
+			swatch.style.transform = 'scale(1)';
+			swatch.style.zIndex = '1';
+			swatch.style.boxShadow = 'none';
+		    });
 
-                // Core Selection Click Action
-                swatch.addEventListener('click', async (e) => {
-                    e.stopPropagation(); // Stop menu bubble leaks
-                    this.settings.fileColors[file.path] = color.value;
-                    await this.saveData(this.settings);
-                    this.updateStyles();
-                    menu.hide(); // Safely dismiss context menu panels after click completes
-                });
+		    // Core Selection Click Action
+		    swatch.addEventListener('click', async (e) => {
+			e.stopPropagation(); 
+			this.settings.fileColors[file.path] = color.value;
+			await this.saveData(this.settings);
+			this.updateStyles();
+			menu.hide(); 
+		    });
 
-                domEl.appendChild(swatch);
-            });
+		    domEl.appendChild(swatch);
+		});
         });
 
         menu.addSeparator();
