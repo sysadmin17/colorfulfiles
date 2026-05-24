@@ -2,6 +2,8 @@
   "name": "colorfulfiles",
   "version": "1.0.0",
   "main": "main.js",
+  "author": "Abdul Moid",
+  "license": "MIT",
   "scripts": {
     "dev": "tsup src/main.ts --format cjs --minify --watch --external obsidian",
     "build": "tsup src/main.ts --format cjs --minify --external obsidian"
