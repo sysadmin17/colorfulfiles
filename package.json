@@ -2,7 +2,7 @@
   "name": "colorfulfiles",
   "version": "1.2.0",
   "main": "main.js",
-  "description": "Transform your file explorer sidebar with a compact 24-color horizontal grid palette...",
+  "description": "Colorful Files - A high-density color palette manager for Obsidian file paths.",
   "author": "Abdul Moid",
   "license": "MIT",
   "scripts": {

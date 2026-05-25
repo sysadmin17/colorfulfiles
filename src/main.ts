@@ -259,8 +259,8 @@ class ColorSettingTab extends PluginSettingTab {
 
     display() {
         const { containerEl } = this;
-        containerEl.empty();
-        containerEl.createEl('h2', { text: 'Custom File Colors Settings' });
+	containerEl.empty();
+	containerEl.createEl('h2', { text: 'Colourful Files Settings' });
 
         new Setting(containerEl)
             .setName('Color Entire Background')
