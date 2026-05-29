@@ -6,8 +6,8 @@
   "author": "Abdul Moid",
   "license": "MIT",
   "scripts": {
-    "dev": "tsup src/main.ts --format cjs --minify --watch --external obsidian",
-    "build": "tsup src/main.ts --format cjs --minify --external obsidian"
+    "dev": "tsup src/main.ts --format cjs --minify --watch --external obsidian --out-dir .",
+    "build": "tsup src/main.ts --format cjs --minify --external obsidian --out-dir ."
   },
   "devDependencies": {
     "obsidian": "^1.5.0",
