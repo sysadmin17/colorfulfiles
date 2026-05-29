@@ -1,0 +1,83 @@
+/* 1. Ultra-Compact Floating Container (Shrunk by 30%) */
+.colourful-files-palette-modal {
+    position: absolute;
+    z-index: var(--layer-menu);
+    background-color: var(--background-secondary-alt);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px; /* Snug padding */
+    box-shadow: var(--shadow-l);
+    width: 170px; /* Locked down compact width */
+    font-family: var(--font-interface);
+}
+
+/* 2. Drag Handle Window Bar */
+.palette-drag-handle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 4px;
+    margin-bottom: 6px;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: grab;
+    border-bottom: 1px solid var(--border-color);
+}
+.palette-drag-handle:active { cursor: grabbing; }
+.palette-close-btn { cursor: pointer; color: var(--text-error); }
+
+/* 3. The 4x4 Grid Matrix */
+.palette-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px; /* Tight, clean alignment */
+    margin-bottom: 8px;
+}
+
+/* 4. Perfect Circular Swatches (Regular State) */
+.palette-swatch-item {
+    width: 28px;  /* Perfectly scaled down */
+    height: 28px;
+    border-radius: 50%; /* Pure Circle */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.1s ease;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+}
+.palette-swatch-item:hover {
+    transform: scale(1.1);
+}
+
+/* 5. The Active Gloss Selection Effect (The 30% M&M Satin Shine) */
+.palette-swatch-item.is-selected {
+    outline: 2px solid var(--text-accent);
+    outline-offset: 1px;
+}
+
+/* This pseudo-element injects the soft glossy reflection when a swatch is active */
+.palette-swatch-item.is-selected::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    border-radius: 50% / 40%;
+    /* Creates a soft, 30% semi-transparent white sheen gradient overlay */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+/* 6. Compact Custom Hex Input Field */
+.palette-custom-hex-input {
+    width: 100%;
+    background-color: var(--background-modifier-form-field);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 4px 6px;
+    font-size: 10px;
+    color: var(--text-normal);
+    text-align: center;
+}
