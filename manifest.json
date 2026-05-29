@@ -1,0 +1,10 @@
+{
+  "id": "colorfulfiles",
+  "name": "Colourful Files",
+  "version": "1.2.0",
+  "minAppVersion": "1.4.0",
+  "description": "Transform your sidebar workspace. Inject a premium, high-density 64-color palette matrix directly into your file explorer context menus with zero performance lag.",
+  "author": "sysadmin17",
+  "authorUrl": "https://github.com/sysadmin17",
+  "isDesktopOnly": false
+}
