@@ -1,17 +1,17 @@
-/* 1. Ultra-Compact Floating Container (Shrunk by 30%) */
+/* Floating UI Window Wrapper */
 .colourful-files-palette-modal {
     position: absolute;
     z-index: var(--layer-menu);
     background-color: var(--background-secondary-alt);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 8px; /* Snug padding */
+    padding: 8px;
     box-shadow: var(--shadow-l);
-    width: 170px; /* Locked down compact width */
+    width: 170px;
     font-family: var(--font-interface);
 }
 
-/* 2. Drag Handle Window Bar */
+/* Draggable Top Ribbon Bar */
 .palette-drag-handle {
     display: flex;
     justify-content: space-between;
@@ -27,19 +27,19 @@
 .palette-drag-handle:active { cursor: grabbing; }
 .palette-close-btn { cursor: pointer; color: var(--text-error); }
 
-/* 3. The 4x4 Grid Matrix */
+/* The 4x4 Grid Structural Matrix Wrapper */
 .palette-matrix-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 6px; /* Tight, clean alignment */
+    gap: 6px;
     margin-bottom: 8px;
 }
 
-/* 4. Perfect Circular Swatches (Regular State) */
+/* Circle Swatch Base Layout */
 .palette-swatch-item {
-    width: 28px;  /* Perfectly scaled down */
+    width: 28px;
     height: 28px;
-    border-radius: 50%; /* Pure Circle */
+    border-radius: 50%;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -50,13 +50,13 @@
     transform: scale(1.1);
 }
 
-/* 5. The Active Gloss Selection Effect (The 30% M&M Satin Shine) */
+/* Active Highlight Styling */
 .palette-swatch-item.is-selected {
     outline: 2px solid var(--text-accent);
     outline-offset: 1px;
 }
 
-/* This pseudo-element injects the soft glossy reflection when a swatch is active */
+/* 30% Glossy Satin Selection Layer Overlay */
 .palette-swatch-item.is-selected::before {
     content: '';
     position: absolute;
@@ -65,12 +65,11 @@
     width: 20px;
     height: 10px;
     border-radius: 50% / 40%;
-    /* Creates a soft, 30% semi-transparent white sheen gradient overlay */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
     pointer-events: none;
 }
 
-/* 6. Compact Custom Hex Input Field */
+/* Native Custom Hex Keypad Entry Field */
 .palette-custom-hex-input {
     width: 100%;
     background-color: var(--background-modifier-form-field);
